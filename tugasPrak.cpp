@@ -97,3 +97,40 @@ void deleteBarang() {
     }
 }
 
+int main() {
+    TokoElektronik toko;
+    int pilihan;
+
+    do {
+        cout << "\n--- MENU TOKO ELEKTRONIK GIBRAN JAYA ---" << endl;
+        cout << "1. Create (Tambah Barang)" << endl;
+        cout << "2. Read (Lihat Gudang)" << endl;
+        cout << "3. Update Barang" << endl;
+        cout << "4. Delete Barang" << endl;
+        cout << "5. Simulasi Etalase" << endl;
+        cout << "6. Keluar" << endl;
+        cout << "Pilih: ";
+        cin >> pilihan;
+
+        switch(pilihan) {
+            case 1: createBarang(); 
+                    break;
+            case 2: readGudang(); 
+                    break;
+            case 3: updateBarang(); 
+                    break;
+            case 4: deleteBarang(); 
+                    break;
+            case 5: {
+                try {
+                    cout << "Skenario 1 (Rak 1): " << toko.ambilProduk(1) << endl;
+                    cout << "Skenario 2 (Rak 5): " << toko.ambilProduk(5) << endl;
+                } catch (const char* e) { 
+                    cout << e << endl; }
+                break;
+            }
+        }
+    } while (pilihan != 6);
+
+    return 0;
+}
