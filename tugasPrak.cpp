@@ -23,4 +23,17 @@ public:
         etalase[2] = "Mesin Cuci";
     }
 
-    
+    string ambilProduk(size_t nomorRak) {
+        try {
+            return at(nomorRak);
+        }
+        catch (const out_of_range& e) {
+            if (nomorRak == 5) {
+                throw "Gagal Mengambil Barang : Rak nomor 5 kosong atau tidak tersedia!";
+            } else {
+                throw "Gagal Mengambil Barang : Rak kosong atau tidak tersedia!";
+            }
+        }
+    }
+};
+
